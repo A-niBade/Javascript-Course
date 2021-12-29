@@ -29,7 +29,6 @@ if (dAvgScore > kAvgScore) {
     console.log("DRAW");
 }
 
-
 // BONUS 1
 const dAvgScoreBonus1 = (97 + 112 + 101) / 3;
 const kAvgScoreBonus1 = (109 + 95 + 123) / 3;
@@ -55,5 +54,23 @@ if (dAvgScoreBonus2 > kAvgScoreBonus2 && dAvgScoreBonus2 >= pointsToWin) {
     console.log("DRAW");
 } else {
     console.log("No one wins the trophy");
+}
+
+// JUNTOS
+
+const scoreDolphins = (97 + 112 + 101) / 3;
+const scoreKoalas = (109 + 95 + 110) / 3;
+const victory = 100;
+
+if (scoreDolphins >= victory || scoreKoalas >= victory) {
+    if (scoreDolphins > scoreKoalas) {
+        console.log("Dolphins win!");
+    } else if (scoreKoalas > scoreDolphins) {
+        console.log("Koalas win!");
+    } else {
+        console.log("Both teams win the trophy!");
+    }
+} else {
+    console.log("No team wins the trophy");
 }
 
