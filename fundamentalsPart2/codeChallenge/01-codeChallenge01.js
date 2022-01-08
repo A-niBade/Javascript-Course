@@ -14,9 +14,9 @@ const scoreKoalas2 = (calcAverage(23, 34, 27));
 
 const checkWinner = function(avgKoala, avgDolphins) {
     if (avgKoala >= 2 * avgDolphins) {
-        console.log(`Koalas wins ${avgKoala} vs ${avgDolpgins}`);
+        console.log(`Koalas wins ${avgKoala} vs ${avgDolphins}`);
     } else if (avgDolphins >= 2 * avgKoala) {
-        console.log(`Koalas wins ${avgKoala} vs ${avgDolpgins}`);
+        console.log(`Koalas wins ${avgKoala} vs ${avgDolphins}`);
     } else {
         console.log("Nobody wins!");
     }
