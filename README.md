@@ -1,3 +1,4 @@
 # Javascript-Course
 
-28-12-2021 fundamentalsPart1 completed 
+28-12-2021 fundamentalsPart1 Completed 
+13-01-2022 fundamentalsPart2 Completed
