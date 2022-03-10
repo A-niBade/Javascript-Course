@@ -40,39 +40,82 @@ const restaurant = {
   orderPasta: function (ing1, ing2, ing3) {
     console.log(`Here is your delicious pasta with ${ing1}, ${ing2}, ${ing3}`);
   },
+
+  orderPizza: function (mainIngridient, ...otherIngridients) {
+    console.log(mainIngridient);
+    console.log(otherIngridients);
+  },
 };
 
-const arr = [7, 8, 9];
-const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
-console.log(badNewArr);
+console.log(3 || 'Anibal');
+console.log('' || 'Anibal');
+console.log(true || 0);
+console.log(undefined || null);
 
-const newArr = [1, 2, ...arr];
-console.log(newArr);
+// // DESTRUCTURING
 
-console.log(...newArr);
+// // SPREAD ON RIGHT SIDE OF =
+// const arr = [1, 2, ...[3, 4]];
 
-const newMenu = [...restaurant.mainMenu, 'Gnocci'];
-console.log(newMenu);
+// // REST ON LEFT SIDE OF =
+// const [a, b, ...others] = [1, 2, 3, 4, 5];
+// console.log(a, b, ...others);
 
-// COPY ARRAY
-const mainMenuCopy = [...restaurant.mainMenu];
+// const [pizza, , risotto, ...otherFood] = [
+//   ...restaurant.mainMenu,
+//   ...restaurant.starterMenu,
+// ];
+// console.log(pizza, risotto, otherFood);
 
-// JOIN 2 ARRAYS
-const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
-console.log(menu);
+// // OBJ
+// const { sat, ...weekdays } = restaurant.openingHours;
+// console.log(weekdays);
 
-// ITERABLES
-const str = 'Anibal';
-const letters = [...str, ' ', 'M.'];
-console.log(letters);
-console.log(str);
+// // FUNCTIONS
+// const add = function (...numbers) {
+//   let sum = 0;
+//   for (let i = 0; i < numbers.length; i++) sum += numbers[i];
+//   console.log(sum);
+// };
+// add(2, 3);
+// add(5, 5);
 
-const ingredients = [
-  prompt("Let's make pasta! Ingridient 1?"),
-  prompt("Let's make pasta! Ingridient 2?"),
-  prompt("Let's make pasta! Ingridient 3?"),
-];
-restaurant.orderPasta(...ingredients);
+// const x = [23, 5, 7];
+// add(...x);
+
+// restaurant.orderPizza('mushroom', 'onion', 'olives');
+
+// const arr = [7, 8, 9];
+// const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
+// console.log(badNewArr);
+
+// const newArr = [1, 2, ...arr];
+// console.log(newArr);
+
+// console.log(...newArr);
+
+// const newMenu = [...restaurant.mainMenu, 'Gnocci'];
+// console.log(newMenu);
+
+// // COPY ARRAY
+// const mainMenuCopy = [...restaurant.mainMenu];
+
+// // JOIN 2 ARRAYS
+// const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+// console.log(menu);
+
+// // ITERABLES
+// const str = 'Anibal';
+// const letters = [...str, ' ', 'M.'];
+// console.log(letters);
+// console.log(str);
+
+// const ingredients = [
+//   prompt("Let's make pasta! Ingridient 1?"),
+//   prompt("Let's make pasta! Ingridient 2?"),
+//   prompt("Let's make pasta! Ingridient 3?"),
+// ];
+// restaurant.orderPasta(...ingredients);
 
 // restaurant.orderDelivery({
 //   time: '22:30',
