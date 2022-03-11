@@ -47,11 +47,60 @@ const restaurant = {
   },
 };
 
-console.log(3 || 'Anibal');
-console.log('' || 'Anibal');
-console.log(true || 0);
-console.log(undefined || null);
+const rest1 = {
+  name: 'Capri',
+  numGuest: 20,
+};
 
+const rest2 = {
+  name: 'La Piazza',
+  owner: 'Giovanni Rossi',
+};
+
+// rest1.numberGuests = rest1.numGuest || 10;
+// rest2.numberGuests = rest2.numGuest || 10;
+
+// rest1.numGuest ||= 10;
+// rest2.numGuest ||= 10;
+
+rest2.numGuest ??= 10;
+rest2.numGuest ??= 10;
+
+// rest2.owner = rest2.owner && '<ANONYMOUS>';
+rest2.owner &&= '<ANONYMOUS>';
+
+console.log(rest1);
+console.log(rest2);
+
+// restaurant.numGuest = 0;
+// const guest = restaurant.numGuest || 10;
+// console.log(guest);
+
+// const guestCorrect = restaurant.numGuest ?? 10;
+// console.log(guestCorrect);
+
+// console.log(3 || 'Anibal');
+// console.log('' || 'Anibal');
+// console.log(true || 0);
+// console.log(undefined || null);
+
+// restaurant.numGuests = 23;
+
+// const guess1 = restaurant.numGuests ? restaurant.numGuests : 10;
+// console.log(guess1);
+
+// const guest2 = restaurant.numGuests || 10;
+// console.log(guest2);
+// console.log('---------------------------');
+
+// console.log(0 && 'Anibal');
+// console.log(2 && 'Anibal');
+
+// if (restaurant.orderPizza) {
+//   restaurant.orderPizza('mushrooms', 'spinach');
+// }
+
+// restaurant.orderPizza && restaurant.orderPizza('Mushrooms', 'Spinach');
 // // DESTRUCTURING
 
 // // SPREAD ON RIGHT SIDE OF =
