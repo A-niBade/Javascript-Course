@@ -41,26 +41,52 @@ const game = {
   },
 };
 
-const players1 = [...game.players[0]];
-const players2 = [...game.players[1]];
-// const [players1, players2] = game.players;
-// console.log(players1, players2);
+// // CODE CHALLENGE 1
 
-const [gk, fieldPlayers] = players1;
+// const players1 = [...game.players[0]];
+// const players2 = [...game.players[1]];
+// // const [players1, players2] = game.players;
+// // console.log(players1, players2);
 
-const allPlayers = [...players1, ...players2];
+// const [gk, fieldPlayers] = players1;
 
-const players1Final = [players1, 'Thiago', 'Couthino', 'Perisic'];
+// const allPlayers = [...players1, ...players2];
 
-const {
-  odds: { team1, x: draw, team2 },
-} = game;
+// const players1Final = [players1, 'Thiago', 'Couthino', 'Perisic'];
 
-const printGoals = function (...players) {
-  console.log(`${players.length} goals were scored`);
-};
+// const {
+//   odds: { team1, x: draw, team2 },
+// } = game;
 
-printGoals(...game.scored);
+// const printGoals = function (...players) {
+//   console.log(`${players.length} goals were scored`);
+// };
 
-team1 < team2 && console.log('Team 1 is more lokely to win');
-team1 > team2 && console.log('Team 2 is more lokely to win');
+// printGoals(...game.scored);
+
+// team1 < team2 && console.log('Team 1 is more lokely to win');
+// team1 > team2 && console.log('Team 2 is more lokely to win');
+
+// CODE CHALLENGE 2
+// 1
+
+const goals = [...game.scored];
+for (const [goal, player] of goals.entries()) {
+  console.log(`Goal ${goal + 1}: ${player}`);
+}
+
+// 2
+const odds = Object.values(game.odds);
+let avg = 0;
+for (const odd of odds) avg += odd;
+avg /= odds.length;
+console.log(avg);
+
+// 3
+
+const test = Object.entries(game.odds);
+
+for (const [team, odd] of test) {
+  const teamStr = team === 'x' ? 'draw' : `victory ${game[team]}`;
+  console.log(`Ood of ${teamStr}: ${odd}`);
+}

@@ -4,6 +4,22 @@
 const flights =
   '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
 
+const weekdays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+const openingHours = {
+  [weekdays[3]]: {
+    open: 12,
+    close: 22,
+  },
+  [weekdays[4]]: {
+    open: 11,
+    close: 23,
+  },
+  [weekdays[5]]: {
+    open: 0, // Open 24 hours
+    close: 24,
+  },
+};
+
 // Data needed for first part of the section
 const restaurant = {
   name: 'Classico Italiano',
@@ -12,65 +28,100 @@ const restaurant = {
   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
 
-  openingHours: {
-    thu: {
-      open: 12,
-      close: 22,
-    },
-    fri: {
-      open: 11,
-      close: 23,
-    },
-    sat: {
-      open: 0, // Open 24 hours
-      close: 24,
-    },
-  },
+  openingHours,
 
-  order: function (starterIndex, mainIndex) {
+  order(starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
 
-  orderDelivery: function ({ starterIndex, mainIndex, time, address }) {
+  orderDelivery({ starterIndex, mainIndex, time, address }) {
     console.log(
       `Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`
     );
   },
 
-  orderPasta: function (ing1, ing2, ing3) {
+  orderPasta(ing1, ing2, ing3) {
     console.log(`Here is your delicious pasta with ${ing1}, ${ing2}, ${ing3}`);
   },
 
-  orderPizza: function (mainIngridient, ...otherIngridients) {
+  orderPizza(mainIngridient, ...otherIngridients) {
     console.log(mainIngridient);
     console.log(otherIngridients);
   },
 };
 
-const rest1 = {
-  name: 'Capri',
-  numGuest: 20,
-};
+const properties = Object.keys(openingHours);
+console.log(properties);
 
-const rest2 = {
-  name: 'La Piazza',
-  owner: 'Giovanni Rossi',
-};
+let openStr = `We are open on ${properties.length} days: `;
 
-// rest1.numberGuests = rest1.numGuest || 10;
-// rest2.numberGuests = rest2.numGuest || 10;
+for (const day of properties) {
+  openStr += `${day}, `;
+}
+console.log(openStr);
 
-// rest1.numGuest ||= 10;
-// rest2.numGuest ||= 10;
+const values = Object.values(openingHours);
+console.log(values);
 
-rest2.numGuest ??= 10;
-rest2.numGuest ??= 10;
+const entries = Object.entries(openingHours);
+console.log(entries);
 
-// rest2.owner = rest2.owner && '<ANONYMOUS>';
-rest2.owner &&= '<ANONYMOUS>';
+console.log('--------------------');
 
-console.log(rest1);
-console.log(rest2);
+for (const [key, { open, close }] of entries) {
+  console.log(`On ${key} we open at ${open} and close at ${close}`);
+}
+
+// console.log(restaurant.openingHours.mon?.open);
+
+// const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+
+// for (const day of days) {
+//   const open = restaurant.openingHours[day]?.open ?? 'Closed';
+//   console.log(`On ${day}, we open at ${open}`);
+// }
+
+// // METHODS
+// console.log(restaurant.order?.(0, 1) ?? 'Method does not exist');
+// console.log(restaurant.orderRisotto?.(0, 1) ?? 'Method does not exist');
+
+// // ARRAYS
+// // const users = [{ name: 'Jonas', email: 'Hello@jonas.io' }];
+// const users = [];
+// console.log(users[0]?.name ?? 'User array empty');
+
+// const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+
+// for (const item of menu) console.log(item);
+
+// for (const [i, el] of menu.entries()) {
+//   console.log(`${i + 1}: ${el}`);
+// }
+
+// const rest1 = {
+//   name: 'Capri',
+//   numGuest: 20,
+// };
+
+// const rest2 = {
+//   name: 'La Piazza',
+//   owner: 'Giovanni Rossi',
+// };
+
+// // rest1.numberGuests = rest1.numGuest || 10;
+// // rest2.numberGuests = rest2.numGuest || 10;
+
+// // rest1.numGuest ||= 10;
+// // rest2.numGuest ||= 10;
+
+// rest2.numGuest ??= 10;
+// rest2.numGuest ??= 10;
+
+// // rest2.owner = rest2.owner && '<ANONYMOUS>';
+// rest2.owner &&= '<ANONYMOUS>';
+
+// console.log(rest1);
+// console.log(rest2);
 
 // restaurant.numGuest = 0;
 // const guest = restaurant.numGuest || 10;
