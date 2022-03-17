@@ -117,5 +117,5 @@ console.log(
 
 for (const [keys, values] of gameEvents) {
   const half = keys <= 45 ? 'First' : 'Second'
-  console.log(`${[half]} ${keys}, ${values} `);
+  console.log(`${[half]} ${keys}, ${values}`);
 }
