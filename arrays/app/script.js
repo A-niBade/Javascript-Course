@@ -75,5 +75,54 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
 
+// SLICE
 let arr = ['a', 'b', 'c', 'd', 'e'];
 console.log(arr.slice(2));
+console.log(arr.slice(2, 4));
+console.log(arr.slice(-2));
+console.log(arr.slice());
+console.log([...arr]);
+
+console.log('---------------------------------');
+
+// SPLICE
+console.log(arr.splice(2));
+console.log(arr);
+
+// REVERSE
+arr = ['a', 'b', 'c', 'd', 'e'];
+const arr2 = ['j', 'i', 'h', 'g'];
+console.log(arr2.reverse());
+
+// CONCAT
+const letters = arr.concat(arr2);
+console.log(letters);
+console.log([...arr, ...arr2]);
+
+// JOIN
+console.log(letters.join(' - '));
+
+// AT
+const arro = [23, 11, 64];
+console.log(arro.at(2));
+console.log(arro[arro.length - 1]);
+
+// forEach
+const movements1 = [200, 450, -400, 3000, -650, -130, 70, 1300];
+for (const [i, movement] of movements1.entries()) {
+  if (movement > 0) {
+    console.log(`Movement ${i + 1} You desposited ${movement}`);
+  } else {
+    console.log(`Movement ${i + 1} You withdrew ${Math.abs(movement)}`);
+  }
+}
+
+console.log('----------------------');
+
+movements1.forEach(function (movement, index, array) {
+  if (movement > 0) {
+    console.log(`Movement ${index + 1} You desposited ${movement}`);
+  } else {
+    console.log(`Movement ${index + 1} You withdrew ${Math.abs(movement)}`);
+  }
+});
