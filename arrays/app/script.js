@@ -148,28 +148,70 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 // });
 
 // MAPS
-const movements1 = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// const movements1 = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+// const eurToUsd = 1.1;
+
+// const movementsUsd = movements1.map(function (mov) {
+//   return mov * eurToUsd;
+// });
+
+// const movementsUsdArrow = movements1.map(mov => mov * eurToUsd);
+
+// console.log(movements1, movementsUsd);
+// console.log('-------------------');
+// console.log(movementsUsdArrow);
+
+// const movementsUSDfor = [];
+// for (const mov of movements1) {
+//   movementsUSDfor.push(mov * eurToUsd);
+// }
+// console.log(movementsUSDfor);
+
+// const movDesc = movements1.map((mov, i) =>
+//   `Movement ${i + 1} : You ${mov > 0 ? 'deposited' : 'withdrew'} ${Math.abs(mov)}}`
+
+// );
+// console.log(movDesc);
+
+// FILTER
+// const deposits = movements.filter(function (mov) {
+//   return mov > 0;
+// });
+// console.log(deposits);
+
+// // const depositedFor = []
+// // for (const mov of movements) if (mov > 0) depositedFor.push(mov)
+// // console.log(depositedFor);
+
+// const withdrawals = movements.filter(function (mov) {
+//   return mov < 0;
+// });
+
+// const withdrawals1 = movements.filter(mov => mov < 0);
+
+// console.log(withdrawals);
+// console.log(withdrawals1);
+
+// REDUCE
+// const balance = movements.reduce((acc, curr) => acc + curr, 0);
+// console.log(balance);
+
+// let balance2 = 0;
+// for (const mov of movements) balance2 += mov;
+// console.log(balance2);
+
+// // MAX VALUE
+// const max = movements.reduce((acc, cur) => {
+//   if (acc > cur) return acc;
+//   else return cur;
+// }, movements[0]);
+
+// console.log(max);
 
 const eurToUsd = 1.1;
-
-const movementsUsd = movements1.map(function (mov) {
-  return mov * eurToUsd;
-});
-
-const movementsUsdArrow = movements1.map(mov => mov * eurToUsd);
-
-console.log(movements1, movementsUsd);
-console.log('-------------------');
-console.log(movementsUsdArrow);
-
-const movementsUSDfor = [];
-for (const mov of movements1) {
-  movementsUSDfor.push(mov * eurToUsd);
-}
-console.log(movementsUSDfor);
-
-const movDesc = movements1.map((mov, i) => 
-  `Movement ${i + 1} : You ${mov > 0 ? 'deposited' : 'withdrew'} ${Math.abs(mov)}}`
-
-);
-console.log(movDesc);
+const totalDespositsUSD = movements
+  .filter(mov => mov > 0)
+  .map(mov => mov * eurToUsd)
+  .reduce((acc, mov) => acc + mov, 0);
+console.log(totalDespositsUSD);
