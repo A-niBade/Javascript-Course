@@ -218,16 +218,28 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 // FIND
 
-const firstWithdrawal = movements.find(mov => mov < 0);
+// const firstWithdrawal = movements.find(mov => mov < 0);
 
-console.log(movements);
-console.log(firstWithdrawal);
+// console.log(movements);
+// console.log(firstWithdrawal);
 
-console.log(accounts);
+// console.log(accounts);
 
-const account = accounts.find(acc => acc.owner === 'Jessica Davis');
-console.log(account);
+// const account = accounts.find(acc => acc.owner === 'Jessica Davis');
+// console.log(account);
 
-for (const acc of accounts) {
-  if(acc.owner === 'Jessica Davis') console.log(acc);
-}
+// for (const acc of accounts) {
+//   if(acc.owner === 'Jessica Davis') console.log(acc);
+// }
+
+// SOME
+
+// console.log(movements);
+// console.log(movements.includes(-130));
+
+// const anyDeposit = movements.some(mov => mov > 5000);
+// console.log(anyDeposit);
+
+// EVERY
+console.log(movements.every(mov => mov > 0));
+console.log(account4.movements.every(mov => mov > 0));
