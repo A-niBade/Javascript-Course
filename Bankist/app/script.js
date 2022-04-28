@@ -63,9 +63,11 @@ const inputClosePin = document.querySelector('.form__input--pin');
 
 // FUNCTIONS
 
-const displayMovements = function (movements) {
+const displayMovements = function (movements, sort = false) {
   containerMovements.innerHTML = '';
-  movements.forEach(function (mov, i) {
+  const movs = sort ? movements.slice().sort((a, b) => a - b) : movements;
+
+  movs.forEach(function (mov, i) {
     const type = mov > 0 ? 'deposit' : 'withdrawal';
 
     const html = `
@@ -204,4 +206,29 @@ btnClose.addEventListener('click', function (e) {
     containerApp.style.opacity = 0;
   }
   inputCloseUsername.value = inputClosePin.value = '';
+});
+
+let sortState = false;
+btnSort.addEventListener('click', function (e) {
+  e.preventDefault();
+  displayMovements(currentAccount.movements, !sortState);
+  sortState = !sortState;
+});
+
+const accountMovements = accounts.map(acc => acc.movements);
+
+const allMovements = accountMovements.flat();
+
+const overalBalance = accounts
+  .map(acc => acc.movements)
+  .flat()
+  .reduce((acc, mov) => acc + mov, 0);
+
+labelBalance.addEventListener('click', function () {
+  const movementsUI = Array.from(
+    document.querySelectorAll('.movements__value'),
+    el => Number(el.textContent.replace('€', ''))
+  );
+
+  console.log(movementsUI);
 });

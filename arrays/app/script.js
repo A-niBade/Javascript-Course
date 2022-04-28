@@ -241,5 +241,44 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 // console.log(anyDeposit);
 
 // EVERY
-console.log(movements.every(mov => mov > 0));
-console.log(account4.movements.every(mov => mov > 0));
+// console.log(movements.every(mov => mov > 0));
+// console.log(account4.movements.every(mov => mov > 0));
+
+// const arr = [[1, 2, 3], [4, 5, 6], 7, 8];
+// console.log(arr.flat());
+
+// const arrDeep = [[[1, 2], 3], [4, [5, 6]], 7, 8];
+// console.log(arrDeep.flat(2));
+
+// const owners = ['Jonas', 'Zach', 'Adam', 'Martha'];
+// console.log(owners.sort());
+
+// movements.sort((a, b) => a - b);
+// console.log(movements);
+
+// movements.sort((a, b) => b - a);
+// console.log(movements);
+
+const arr = [1, 2, 3, 4, 5, 6, 7];
+arr.fill(23, 2, 6);
+console.log(arr);
+
+const x = new Array(7);
+console.log(x);
+
+// x.fill(5);
+x.fill(1, 3, 5);
+console.log(x);
+
+const y = Array.from({ length: 7 }, () => 1);
+console.log(y);
+
+const z = Array.from({ length: 7 }, (_, i) => i + 1);
+console.log(z);
+
+const dice = Array.from({ length: 100 }, () =>
+  Math.trunc(Math.random() * 6 + 1)
+);
+console.log(dice);
+
+
