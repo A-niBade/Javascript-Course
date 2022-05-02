@@ -259,26 +259,67 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 // movements.sort((a, b) => b - a);
 // console.log(movements);
 
-const arr = [1, 2, 3, 4, 5, 6, 7];
-arr.fill(23, 2, 6);
-console.log(arr);
+// const arr = [1, 2, 3, 4, 5, 6, 7];
+// arr.fill(23, 2, 6);
+// console.log(arr);
 
-const x = new Array(7);
-console.log(x);
+// const x = new Array(7);
+// console.log(x);
 
-// x.fill(5);
-x.fill(1, 3, 5);
-console.log(x);
+// // x.fill(5);
+// x.fill(1, 3, 5);
+// console.log(x);
 
-const y = Array.from({ length: 7 }, () => 1);
-console.log(y);
+// const y = Array.from({ length: 7 }, () => 1);
+// console.log(y);
 
-const z = Array.from({ length: 7 }, (_, i) => i + 1);
-console.log(z);
+// const z = Array.from({ length: 7 }, (_, i) => i + 1);
+// console.log(z);
 
-const dice = Array.from({ length: 100 }, () =>
-  Math.trunc(Math.random() * 6 + 1)
-);
-console.log(dice);
+// const dice = Array.from({ length: 100 }, () =>
+//   Math.trunc(Math.random() * 6 + 1)
+// );
+// console.log(dice);
 
+// 1
+const bankDepositSum = accounts
+  .flatMap(acc => acc.movements)
+  .filter(mov => mov > 0)
+  .reduce((sum, curr) => sum + curr, 0);
+console.log(bankDepositSum);
 
+// 2
+const numDeposit1000 = accounts
+  .flatMap(acc => acc.movements)
+  .reduce((count, cur) => (cur >= 1000 ? count + 1 : count), 0);
+console.log(numDeposit1000);
+
+// 3
+const { deposits, withdrawals } = accounts
+  .flatMap(acc => acc.movements)
+  .reduce(
+    (sums, cur) => {
+      // cur > 0 ? (sums.desposits += cur) : (sums.withdrawals += cur);
+      sums[cur > 0 ? 'deposits' : 'withdrawals'] += cur;
+      return sums;
+    },
+    { deposits: 0, withdrawals: 0 }
+  );
+console.log(deposits, withdrawals);
+
+// EXC
+const { income, outcome } = accounts
+  .flatMap(acc => acc.movements)
+  .reduce(
+    (sum, curr) => {
+      sum[curr > 0 ? 'income' : 'outcome'] += curr;
+      return sum;
+    },
+    { income: 0, outcome: 0 }
+  );
+console.log(income, outcome);
+
+const numDeposit = accounts
+  .flatMap(acc => acc.movements)
+  .reduce((count, cur) => count + (cur >= 1000), 0);
+console.log(numDeposit);
